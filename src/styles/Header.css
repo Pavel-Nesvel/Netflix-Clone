@@ -1,0 +1,35 @@
+.navigation-header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: rgb(30, 29, 52);
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+     
+}
+.navigation-header ul{
+    list-style: none;
+    margin-right: 120px;
+    
+}
+.navigation-header li a{
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 1.3vw;
+
+}
+.navigation-header a:hover{
+    color: rgb(97, 92, 92,0.5);
+    transition: color 0.3s ease-in-out;
+    
+
+}
+
+
+ 
+
+   
