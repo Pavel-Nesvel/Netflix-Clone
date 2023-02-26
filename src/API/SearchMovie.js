@@ -17,6 +17,33 @@ export const getMovieVideo = async (movieId) => {
   );
   return video;
 };
+export const  getAllTendance=async()=>{
+  return[
+    {
+      original_title: "Daily Trending Movie",
+      title: "Tendance journalière des Films",
+      movies: await fetchMovies("trending/movie/day"),
+    },
+    {
+      original_title: "week Trending all",
+      title: "Tendance hebdomadaire",
+      movies: await fetchMovies("trending/all/week"),
+    },
+
+    {
+      original_title: "Daily Trending tv",
+      title: "Tendance journalière des émissions TV",
+      movies: await fetchMovies("trending/tv/day"),
+    },
+    {
+      original_title: "Daily Trending all",
+      title: "Toutes les tendances du jour",
+      movies: await fetchMovies("trending/all/day"),
+    },
+
+
+  ]
+};
 export const getMovies = async () => {
   return [
     {
@@ -41,27 +68,6 @@ export const getMovies = async () => {
       movies: await fetchMovies("movie/popular"),
     },
 
-    {
-      original_title: "Daily Trending Movie",
-      title: "Tendance film du jour",
-      movies: await fetchMovies("trending/movie/day"),
-    },
-    {
-      original_title: "week Trending all",
-      title: "Tendance hebdomadaire",
-      movies: await fetchMovies("trending/all/week"),
-    },
-
-    {
-      original_title: "Daily Trending tv",
-      title: "Tendance emissions télé du jour",
-      movies: await fetchMovies("trending/tv/day"),
-    },
-    {
-      original_title: "Daily Trending all",
-      title: "Toutes les tendances du jour",
-      movies: await fetchMovies("trending/all/day"),
-    },
 
     {
       original_title: "Animation ",
