@@ -1,15 +1,7 @@
-import React, { useState, useRef } from "react";
-import "../styles/movieCard.css";
-
+import React, { useRef } from "react";
+import { Scroller } from "../Functions/Scroller";
 export const MovieCard = ({ movies, title, setSelectedMovieId }) => {
-  const scrollerRef = useRef(null);
-  const handlePrev = () => {
-    scrollerRef.current.scrollLeft -= 500;
-  };
-
-  const handleNext = () => {
-    scrollerRef.current.scrollLeft += 500;
-  };
+  const { scrollerRef, handlePrev, handleNext } = Scroller();
   const addToLocalStorage = (filmId) => {
     let AddStorage = window.localStorage.movies
       ? window.localStorage.movies.split(",")
@@ -19,19 +11,18 @@ export const MovieCard = ({ movies, title, setSelectedMovieId }) => {
       AddStorage.push(filmId);
       window.localStorage.movies = AddStorage;
     }
- 
   };
   // Triez les films par date de sortie en utilisant la méthode sort()
-const sortedMovies = movies.data.results.sort((a, b) => {
-  return new Date(b.release_date) - new Date(a.release_date);
-});
+  const sortedMovies = movies.data.results.sort((a, b) => {
+    return new Date(b.release_date) - new Date(a.release_date);
+  });
 
   // console.log("next");
 
-  console.log("move pavel", movies.data.results);
+  // console.log("move pavel", movies.data.results);
   return (
     <div className="movie-card">
-      <h1>{title}</h1>
+      <h1 className="movie-title">{title}</h1>
       <div className="chevron-left" onClick={handlePrev}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
