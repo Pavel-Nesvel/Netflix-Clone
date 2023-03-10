@@ -1,10 +1,9 @@
-.movie-card h1 {
-  display: table-cell;
-  font-size: 1.4vw;
-  line-height: 1.25vw;
+.movie-card .movie-title {
+  font-size: 1.2rem;
+  line-height: 1.4;
   color: #e5e5e5;
   font-weight: 500;
-  font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-ser;
+ font-family: Arial, Helvetica, sans-serif;
 }
 .movie-element {
   margin: 5px 0;
@@ -58,10 +57,12 @@
 .chevron-left {
   left: 0;
   opacity: 0;
+  text-align: center;
 }
 .chevron-right {
   right: 0;
   opacity: 0;
+  text-align: center;
 }
 .movie-card:hover > .chevron-left {
   opacity: 1;
@@ -97,4 +98,7 @@
 .movie-img:hover > .chevron-liste {
   opacity: 1;
   transition: 0.3s ease-in-out;
+}
+.tendances-container{
+  margin-top: 50px;
 }

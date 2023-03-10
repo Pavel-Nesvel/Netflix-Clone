@@ -1,0 +1,59 @@
+.signUp-container {
+  background-image: url("../../public/movie-backgroung.PNG");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+}
+.form-container {
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 230px;
+}
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  min-width: 300px;
+  max-width: 400px;
+  width: 50%;
+  margin: 0 auto;
+}
+form input {
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid black;
+  resize: none;
+  box-shadow: 0 2px 6px rgba(140, 63, 63, 0.05);
+}
+form input[type="submit"] {
+  cursor: pointer;
+  transition: 0.4s;
+  border-radius: 10px;
+  padding: 10px;
+}
+.signUp-count{
+    text-align: center;
+}
+.signUp-count h2{
+    font-size: 0.75rem;
+
+}
+.signUp-count a{
+    color: white !important;
+}
+
+.form-container h1 {
+  font-size: 1.4rem;
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  padding: 10px 0;
+}
