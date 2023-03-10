@@ -1,22 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/Header.css";
-const logo ="/Netflix-Logo.wine.svg";
+const logo = "/Netflix-Logo.wine.svg";
 export const Header = () => {
   return (
     <div className="navigation-header">
-        <div className="header-logo">
-            <img src={logo} alt="logo_netflix" />
-        </div>
-     
+      <div className="header-logo">
+        <img src={logo} alt="logo_netflix" />
+      </div>
+
       <ul>
         <li>
-          <NavLink to="/">Home-Cinema</NavLink>
-
-          <NavLink to="myliste">MyListe</NavLink>
+          <NavLink to="/tendances">Tendances</NavLink>
+          <NavLink to="/">Home-Movies</NavLink>
+          <NavLink to="/myliste">MyListe</NavLink>
         </li>
       </ul>
-     
     </div>
   );
 };

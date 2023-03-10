@@ -1,11 +1,13 @@
 import axios from "axios";
 
-const API_KEY = "93c0aecb2a042c97c443b348e7ce6804";
-const API_URL = "https://api.themoviedb.org/3/";
-
 const fetchMovies = async (link) => {
   return await axios.get(
-    `${API_URL}${link}?&api_key=${API_KEY}&language=fr-FR`
+    `${process.env.REACT_APP_API_URL}${link}?&api_key=${process.env.REACT_APP_API_KEY}&language=fr-FR`
+  );
+};
+const fetchMovies2 = async (link) => {
+  return await axios.get(
+    `${process.env.REACT_APP_API_URL}${link}?&api_key=${process.env.REACT_APP_API_KEY}&language=fr-FR&page=2`
   );
 };
 export const getMovieId = async (movieId) => {
@@ -13,12 +15,12 @@ export const getMovieId = async (movieId) => {
 };
 export const getMovieVideo = async (movieId) => {
   const video = await axios.get(
-    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=fr-FR&append_to_response=videos`
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=fr-FR&append_to_response=videos`
   );
   return video;
 };
-export const  getAllTendance=async()=>{
-  return[
+export const getAllTendance = async () => {
+  return [
     {
       original_title: "Daily Trending Movie",
       title: "Tendance journalière des Films",
@@ -40,9 +42,7 @@ export const  getAllTendance=async()=>{
       title: "Toutes les tendances du jour",
       movies: await fetchMovies("trending/all/day"),
     },
-
-
-  ]
+  ];
 };
 export const getMovies = async () => {
   return [
@@ -52,9 +52,21 @@ export const getMovies = async () => {
       movies: await fetchMovies("movie/now_playing"),
     },
     {
+      original_title: "Get Now Playing next page",
+      title: "",
+      movies: await fetchMovies2("movie/now_playing"),
+    },
+
+    {
       original_title: "Get Upcoming",
       title: "Film à venir dans les salles",
       movies: await fetchMovies("movie/upcoming"),
+    },
+    
+    {
+      original_title: "Get Upcoming next pages",
+      title: "",
+      movies: await fetchMovies2("movie/upcoming"),
     },
     {
       original_title: "Top Rated",
@@ -67,7 +79,6 @@ export const getMovies = async () => {
       title: "Listes des films populaires actuels",
       movies: await fetchMovies("movie/popular"),
     },
-
 
     {
       original_title: "Animation ",

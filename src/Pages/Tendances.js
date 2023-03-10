@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAllTendance } from "../API/SearchMovie";
 import { Header } from "../components/Header";
-import { HomeMovie } from "../components/HomeMovie";
 import { TendanceCard } from "../components/TendanceCard";
 export const Tendances = () => {
   const [tendances, setTendances] = useState([]);
@@ -17,7 +16,7 @@ export const Tendances = () => {
   return (
     <div className="tendances-container">
       <Header />
-      <HomeMovie/>
+  
       {tendances &&
         tendances.map((tendance, key) => (
           <TendanceCard

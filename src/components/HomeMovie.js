@@ -39,8 +39,8 @@ export const HomeMovie = ({ selectedMovieId }) => {
     const getMovieGenres = () => {
       let listeGenres = [];
       if (activeVideo) {
-        for (const use of activeVideo?.data.genres) {
-          listeGenres.push(use.name);
+        for (const video of activeVideo?.data.genres) {
+          listeGenres.push(video.name);
         }
         setGenres(listeGenres);
       }
@@ -58,8 +58,8 @@ export const HomeMovie = ({ selectedMovieId }) => {
     movieId();
   }, [selectedMovieId]);
 
-  // console.log("select", activeVideo);
-   console.log("video ee", activeVideo);
+  //  console.log("select", selected);
+  console.log("video ee", activeVideo);
   // console.log("ee", activeVideo?.data.videos?.results[0].published_at);
 
   return (
@@ -79,8 +79,9 @@ export const HomeMovie = ({ selectedMovieId }) => {
         <h2>
           {" "}
           Sortie le:{" "}
-          {activeVideo?.data.release_date ?activeVideo?.data.release_date :dateFormter(activeVideo?.data.videos?.results[0]?.published_at)}
-
+          {activeVideo?.data.release_date
+            ? activeVideo?.data.release_date
+            : dateFormter(activeVideo?.data.videos?.results[0]?.published_at)}
         </h2>
         {/* <h3>
           {activeVideo?.data.vote_average}/<span>⭐</span>
@@ -89,15 +90,15 @@ export const HomeMovie = ({ selectedMovieId }) => {
         <h3>
           <CircularProgressbar
             value={activeVideo?.data.vote_average * 10}
-            text={`${activeVideo?.data.vote_average}`}
+            text={`${activeVideo?.data.vote_average}%`}
             styles={{
-              root: { width: "50px", height: "50px" },
-              path: { stroke: "#0075FF" },
+              root: { width: "40px", height: "50px"},
+              path: { stroke: "#DF3D1B"},
               text: { fontSize: "1rem", fill: "#0075FF" },
             }}
           />
           <span>
-            <em className="voterage-note">/10</em>⭐
+            <em className="voterage-note"></em>⭐
           </span>
         </h3>
 
