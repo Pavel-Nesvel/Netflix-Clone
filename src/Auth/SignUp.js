@@ -10,6 +10,7 @@ export const SignUp = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
   const { currentUser, register } = useAuth();
   const handleEmail = (e) => {
@@ -26,6 +27,8 @@ export const SignUp = () => {
     e.preventDefault();
     if (password !== passwordConfirm) {
       return alert("les deux mot de passe ne correspondent pas !");
+    }if(password.length<6){
+      setError(true)
     }
     try {
       setLoading(true);
@@ -35,6 +38,7 @@ export const SignUp = () => {
       console.log("error",e)
     }
     setLoading(false);
+    setError(false)
   };
   useEffect(() => {
     if (currentUser) {
@@ -65,6 +69,7 @@ export const SignUp = () => {
             onChange={handlePassword}
             placeholder="votre mot de passe"
           />
+          {error && <p style={{color: error ? "red":null}}>le mot de passe doit faire minimum 6 caractere</p>}
           <input
             type="passWord"
             name="passWordConfirm"
