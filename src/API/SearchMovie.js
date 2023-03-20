@@ -5,6 +5,11 @@ const fetchMovies = async (link) => {
     `${process.env.REACT_APP_API_URL}${link}?&api_key=${process.env.REACT_APP_API_KEY}&language=fr-FR`
   );
 };
+const fetchMoviesRecommanded = async (RecommandedId) => {
+  return await axios.get(
+    `${process.env.REACT_APP_API_URL}${RecommandedId}?&api_key=${process.env.REACT_APP_API_KEY}&language=fr-FR&recommendations`
+  );
+};
 const fetchMovies2 = async (link) => {
   return await axios.get(
     `${process.env.REACT_APP_API_URL}${link}?&api_key=${process.env.REACT_APP_API_KEY}&language=fr-FR&page=2`
@@ -13,9 +18,16 @@ const fetchMovies2 = async (link) => {
 export const getMovieId = async (movieId) => {
   return await fetchMovies(`movie/${movieId}`);
 };
+
 export const getMovieVideo = async (movieId) => {
   const video = await axios.get(
     `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=fr-FR&append_to_response=videos`
+  );
+  return video;
+};
+export const getTvVideo = async (movieId) => {
+  const video = await axios.get(
+    `https://api.themoviedb.org/3/tv/${movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=fr-FR&append_to_response=videos`
   );
   return video;
 };
@@ -106,11 +118,7 @@ export const getMovies = async () => {
       title: "Emissions télévision diffusées aujourd'hui ",
       movies: await fetchMovies("tv/airing_today"),
     },
-    {
-      original_title: " current popular TV ",
-      title: "Emissions télévision sur notre site ",
-      movies: await fetchMovies("tv/popular"),
-    },
+   
     {
       original_title: "MOVIE Adventure ",
       title: "Movie Adventure ",
@@ -126,13 +134,7 @@ export const getMovies = async () => {
       title: "SHOW Family",
       movies: await fetchMovies("discover/movie?with_genres=10751"),
     },
-    {
-      original_title: "Drame",
-      title: "Films Sortie en 2014",
-      movies: await fetchMovies(
-        "discover/movie?with_genres=18&primary_release_year=2014"
-      ),
-    },
+   
     {
       original_title: "Best movie drama",
       title: "Meilleur film de Drame",
@@ -141,13 +143,9 @@ export const getMovies = async () => {
     {
       original_title: "Best movie drama",
       title: "Meilleur film de Drame 2",
-      movies: await fetchMovies("discover/movie?with_genres=10749"),
+      movies: await fetchMovies("discover/movie?with_genres=18"),
     },
-    {
-      original_title: "Best movie drama",
-      title: "Meilleur film de Drame 3",
-      movies: await fetchMovies("discover/movie?with_genres=99"),
-    },
+  
     {
       original_title: "tt",
       title: " Liam Neeson's ",
