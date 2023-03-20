@@ -14,7 +14,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  height: 255px;
+  height: 260px;
 }
 form {
   display: grid;
@@ -43,10 +43,11 @@ form input[type="submit"] {
   text-align: center;
 }
 .signUp-count h2 {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
 }
 .signUp-count a {
   color: white;
+  font-size: 0.70rem;
 }
 
 .form-container h1 {
@@ -55,4 +56,14 @@ form input[type="submit"] {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   padding: 10px 0;
+}
+.logout{
+  width: 20px;
+  height: 40px;
+  position: absolute;
+  align-items: center;
+  top: 50%;
+  margin-left: 3px;
+  transform: translate(-50%,-50%);
+  
 }
