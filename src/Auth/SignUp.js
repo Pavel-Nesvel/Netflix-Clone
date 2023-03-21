@@ -69,7 +69,7 @@ export const SignUp = () => {
             onChange={handlePassword}
             placeholder="votre mot de passe"
           />
-          {error && <p style={{color: error ? "red":null}}>le mot de passe doit faire minimum 6 caractere</p>}
+          {error && alert("votre mot de passe doit contenir au moins 6 caractères")}
           <input
             type="passWord"
             name="passWordConfirm"

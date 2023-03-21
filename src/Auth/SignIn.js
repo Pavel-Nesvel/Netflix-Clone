@@ -32,7 +32,7 @@ export const SignIn = () => {
       navigate("/");
     }
   }, [currentUser, navigate]);
-  console.log("value",email)
+ 
   
     return (
         <div className="signUp-container">
