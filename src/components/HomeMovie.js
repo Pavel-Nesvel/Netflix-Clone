@@ -35,18 +35,7 @@ export const HomeMovie = ({ selectedMovieId }) => {
   // }, [activeVideo]);
 
   // console.log("dd", genres);
-  useEffect(() => {
-    const getMovieGenres = () => {
-      let listeGenres = [];
-      if (activeVideo) {
-        for (const video of activeVideo?.data.genres) {
-          listeGenres.push(video.name);
-        }
-        setGenres(listeGenres);
-      }
-    };
-    getMovieGenres();
-  }, [activeMovie]);
+ 
 
   useEffect(() => {
     const movieId = async () => {
@@ -58,8 +47,21 @@ export const HomeMovie = ({ selectedMovieId }) => {
     movieId();
   }, [selectedMovieId]);
 
+  useEffect(() => {
+    const getMovieGenres = () => {
+      let listeGenres = [];
+      if (activeVideo) {
+        for (const video of activeVideo?.data.genres) {
+          listeGenres.push(video.name);
+        }
+        setGenres(listeGenres);
+      }
+    };
+    getMovieGenres();
+  }, [activeVideo]);
+
   //  console.log("select", selected);
-  console.log("video ee", activeVideo);
+  console.log("video emss", activeMovie);
   // console.log("ee", activeVideo?.data.videos?.results[0].published_at);
 
   return (

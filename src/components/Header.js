@@ -26,7 +26,12 @@ export const Header = () => {
           <NavLink to="/tendances">Tendances</NavLink>
           <NavLink to="/">Home-Movies</NavLink>
           <NavLink to="/myliste">MyListe</NavLink>
+         
+          
           {currentUser?.email && (
+            
+            <>
+             <NavLink >Deconnexion</NavLink>
             <NavLink onClick={handleLogout}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -43,6 +48,8 @@ export const Header = () => {
                 />
               </svg>
             </NavLink>
+            
+            </>
           )}
         </li>
       </ul>

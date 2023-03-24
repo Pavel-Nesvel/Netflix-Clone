@@ -21,7 +21,7 @@ export const HomeCineme = () => {
     <div className="netflix-container">
       <div className="container">
         <Header />
-        <HomeMovie selectedMovieId={selectedMovieId} movies={movies} />
+        <HomeMovie selectedMovieId={selectedMovieId}/>
         {movies &&
           movies.map((movie, key) => (
             <MovieCard
