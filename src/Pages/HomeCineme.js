@@ -7,7 +7,6 @@ import "../styles/netflix.css";
 export const HomeCineme = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovieId, setSelectedMovieId] = useState(505642);
-  // 677179
   useEffect(() => {
     const loadMovies = async () => {
       let moviesAll = await getMovies();

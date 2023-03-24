@@ -3,8 +3,6 @@ import "../styles/movieCard.css";
 import { Scroller } from "../Functions/Scroller";
 export const TendanceCard = ({ title, tendance }) => {
   const { scrollerRef, handlePrev, handleNext } =Scroller();
-  // console.log("salut le monde pavel", tendance);
-
   return (
     <div className="tendance-container">
       <div className="movie-card">
