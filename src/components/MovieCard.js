@@ -20,9 +20,10 @@ export const MovieCard = ({ movies, title, setSelectedMovieId }) => {
 
   useEffect(() => {
     // Mettre à jour les IDs de films chaque fois que les données de films changent
-    if (movies.data && movies.data.results) {
+    if(movies.data){
       const ids = movies.data.results.map((movie) => movie.id);
       setMovieIds(ids);
+    
     }
   }, [movies]);
 
