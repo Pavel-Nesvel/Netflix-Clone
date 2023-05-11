@@ -28,6 +28,7 @@ export const HomeCineme = () => {
               title={movie.title}
               movies={movie.movies}
               setSelectedMovieId={setSelectedMovieId}
+              selectedMovieId={selectedMovieId}
             />
           ))}
       </div>
