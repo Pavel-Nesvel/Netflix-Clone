@@ -3,7 +3,7 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 import "../styles/Header.css";
-const logo = "/Netflix-Logo.wine.svg";
+const logo = "/Logo_cinema1.png";
 export const Header = () => {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
@@ -18,7 +18,8 @@ export const Header = () => {
   return (
     <div className="navigation-header">
       <div className="header-logo">
-        <img src={logo} alt="logo_netflix" />
+        {/* <img src={logo} alt="logo_netflix" /> */}
+        <em> Ciné Fusion</em>
       </div>
 
       <ul>
@@ -28,7 +29,7 @@ export const Header = () => {
           <NavLink to="/myliste">MyListe</NavLink>
          
           
-          {currentUser?.email && (
+          {currentUser && (
             
             <>
              <NavLink >Deconnexion</NavLink>
