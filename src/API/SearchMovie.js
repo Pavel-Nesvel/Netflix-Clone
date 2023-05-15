@@ -21,7 +21,7 @@ export const getMovieId = async (movieId) => {
 
 export const getMovieVideo = async (movieId) => {
   const video = await axios.get(
-    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=fr-FR&append_to_response=videos`
+    `${process.env.REACT_APP_API_URL}movie/${movieId}?api_key=${process.env.REACT_APP_API_KEY}&language=fr-FR&append_to_response=videos`
   );
   return video;
 };
