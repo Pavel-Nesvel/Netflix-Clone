@@ -7,6 +7,7 @@ import "../styles/netflix.css";
 export const HomeCineme = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovieId, setSelectedMovieId] = useState(505642);
+  const [traillerPlay, setTraillerPlay] = useState(505642);
   useEffect(() => {
     const loadMovies = async () => {
       let moviesAll = await getMovies();
@@ -15,12 +16,11 @@ export const HomeCineme = () => {
 
     loadMovies();
   }, []);
-  
   return (
     <div className="netflix-container">
       <div className="container">
         <Header />
-        <HomeMovie selectedMovieId={selectedMovieId}/>
+        <HomeMovie selectedMovieId={selectedMovieId}  traillerPlay={traillerPlay}/>
         {movies &&
           movies.map((movie, key) => (
             <MovieCard
@@ -29,6 +29,7 @@ export const HomeCineme = () => {
               movies={movie.movies}
               setSelectedMovieId={setSelectedMovieId}
               selectedMovieId={selectedMovieId}
+              setTraillerPlay={setTraillerPlay}
             />
           ))}
       </div>
