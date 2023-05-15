@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import YouTube from "react-youtube";
-import { getMovieId, getMovieVideo } from "../API/SearchMovie";
+import {  getMovieVideo } from "../API/SearchMovie";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 import "../styles/homeMovie.css";
 import { NavLink } from "react-router-dom";
 
-export const HomeMovie = ({ selectedMovieId }) => {
-  const [activeMovie, setActiveMovie] = useState();
+export const HomeMovie = ({ selectedMovieId, traillerPlay }) => {
   const [activeVideo, setActiveVideo] = useState();
+  const [activePlay, setActivePlay] = useState();
   const [showVideo, setShowVideo] = useState(false);
   const [genres, setGenres] = useState([]);
-  const video = activeVideo?.data.videos?.results[0];
+  const playId = activePlay?.data.videos?.results[0];
 
   const dateFormter = (date) => {
     let newDate = new Date(date).toLocaleDateString("fr-FR", {
@@ -23,13 +23,17 @@ export const HomeMovie = ({ selectedMovieId }) => {
     return newDate;
   };
 
-  
+  useEffect(() => {
+    const play = async () => {
+      let videoPlay = await getMovieVideo(selectedMovieId);
+      setActivePlay(videoPlay);
+    };
+    play();
+  }, [traillerPlay]);
 
   useEffect(() => {
     const movieId = async () => {
-      let movie = await getMovieId(selectedMovieId);
       let video = await getMovieVideo(selectedMovieId);
-      setActiveMovie(movie);
       setActiveVideo(video);
     };
     movieId();
@@ -54,9 +58,9 @@ export const HomeMovie = ({ selectedMovieId }) => {
       style={{
         backgroundSize: "cover",
         backgroundImage: `url(https://image.tmdb.org/t/p/original/${
-          activeMovie?.data.backdrop_path
-            ? activeMovie.data.backdrop_path
-            : activeMovie?.data.poster_path
+          activeVideo?.data.backdrop_path
+            ? activeVideo.data.backdrop_path
+            : activeVideo?.data.poster_path
         })`,
       }}
     >
@@ -78,8 +82,8 @@ export const HomeMovie = ({ selectedMovieId }) => {
             value={activeVideo?.data.vote_average * 10}
             text={`${activeVideo?.data.vote_average}%`}
             styles={{
-              root: { width: "40px", height: "50px"},
-              path: { stroke: "#DF3D1B"},
+              root: { width: "40px", height: "50px" },
+              path: { stroke: "#DF3D1B" },
               text: { fontSize: "1rem", fill: "#0075FF" },
             }}
           />
@@ -108,7 +112,7 @@ export const HomeMovie = ({ selectedMovieId }) => {
         {showVideo && (
           <YouTube
             className="movie-video-playing"
-            videoId={video?.key}
+            videoId={playId?.key}
             containerClassName={"youtube-container "}
             opts={{
               width: "100%",
