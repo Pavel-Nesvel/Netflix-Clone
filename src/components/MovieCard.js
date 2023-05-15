@@ -1,8 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Scroller } from "../Functions/Scroller";
-export const MovieCard = ({ movies, title, setSelectedMovieId }) => {
+export const MovieCard = ({
+  movies,
+  title,
+  setSelectedMovieId,
+  setTraillerPlay,
+}) => {
   const { scrollerRef, handlePrev, handleNext } = Scroller();
-  // const [movieIds, setMovieIds] = useState([]);
+  const [movieIds, setMovieIds] = useState([]);
   const addToLocalStorage = (filmId) => {
     let AddStorage = window.localStorage.movies
       ? window.localStorage.movies.split(",")
@@ -18,25 +23,25 @@ export const MovieCard = ({ movies, title, setSelectedMovieId }) => {
     return new Date(b.release_date) - new Date(a.release_date);
   });
 
-  // useEffect(() => {
-  //   // Mettre à jour les IDs de films chaque fois que les données de films changent
-  //   if (movies.data && movies.data.results) {
-  //     const ids = movies.data.results.map((movie) => movie.id);
-  //     setMovieIds(ids);
-  //   }
-  // }, [movies]);
+  useEffect(() => {
+    // Mettre à jour les IDs de films chaque fois que les données de films changent
+    if (movies.data && movies.data.results) {
+      const ids = movies.data.results.map((movie) => movie.id);
+      setMovieIds(ids);
+    }
+  }, [movies]);
 
-  // useEffect(() => {
-  //   let timerId;
-  //   if (movieIds) {
-  //     timerId = setInterval(() => {
-  //       const nextMovieId = movieIds[0];
-  //       setMovieIds((prevIds) => [...prevIds.slice(1), nextMovieId]);
-  //       setSelectedMovieId(nextMovieId);
-  //     }, 10000);
-  //   }
-  //   return () => clearInterval(timerId);
-  // }, [movieIds]);
+  useEffect(() => {
+    let timerId;
+    if (movieIds) {
+      timerId = setInterval(() => {
+        const nextMovieId = movieIds[0];
+        setMovieIds((prevIds) => [...prevIds.slice(1), nextMovieId]);
+        setSelectedMovieId(nextMovieId);
+      }, 10000);
+    }
+    return () => clearInterval(timerId);
+  }, [movieIds]);
 
   return (
     <div className="movie-card">
@@ -84,7 +89,10 @@ export const MovieCard = ({ movies, title, setSelectedMovieId }) => {
             <div
               className="movie-img"
               key={key}
-              onClick={() => setSelectedMovieId(movie.id)}
+              onClick={() => {
+                setSelectedMovieId(movie.id);
+                setTraillerPlay(movie.id);
+              }}
             >
               <div
                 className="chevron-liste"
