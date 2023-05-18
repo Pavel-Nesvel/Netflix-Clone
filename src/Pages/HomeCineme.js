@@ -16,11 +16,15 @@ export const HomeCineme = () => {
 
     loadMovies();
   }, []);
+
   return (
     <div className="netflix-container">
       <div className="container">
         <Header />
-        <HomeMovie selectedMovieId={selectedMovieId}  traillerPlay={traillerPlay}/>
+        <HomeMovie
+          selectedMovieId={selectedMovieId}
+          traillerPlay={traillerPlay}
+        />
         {movies &&
           movies.map((movie, key) => (
             <MovieCard
