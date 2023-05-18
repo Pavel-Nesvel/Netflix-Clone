@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import YouTube from "react-youtube";
-import {  getMovieVideo } from "../API/SearchMovie";
+import { getMovieId, getMovieVideo } from "../API/SearchMovie";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
@@ -13,7 +13,7 @@ export const HomeMovie = ({ selectedMovieId, traillerPlay }) => {
   const [showVideo, setShowVideo] = useState(false);
   const [genres, setGenres] = useState([]);
   const playId = activePlay?.data.videos?.results[0];
-
+  console.log("acti", activeVideo);
   const dateFormter = (date) => {
     let newDate = new Date(date).toLocaleDateString("fr-FR", {
       day: "numeric",
