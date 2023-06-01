@@ -12,7 +12,6 @@ export const Tendances = () => {
     };
     loadTendance();
   }, []);
-  //  console.log("tendance",tendances);
   return (
     <div className="tendances-container">
       <Header />

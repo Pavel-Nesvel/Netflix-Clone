@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Scroller } from "../Functions/Scroller";
 export const MovieCard = ({
   movies,
@@ -79,11 +79,7 @@ export const MovieCard = ({
         </svg>
       </div>
 
-      <div
-        ref={scrollerRef}
-        className="movie-element"
-        // style={{ display: 'flex', width: `${200 * movies.data.results.length}px` }}
-      >
+      <div ref={scrollerRef} className="movie-element">
         {movies.data.results.length > 0 &&
           sortedMovies.map((movie, key) => (
             <div

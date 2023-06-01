@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import "../styles/movieCard.css";
 import { Scroller } from "../Functions/Scroller";
 export const TendanceCard = ({ title, tendance }) => {
-  const { scrollerRef, handlePrev, handleNext } =Scroller();
+  const { scrollerRef, handlePrev, handleNext } = Scroller();
   return (
     <div className="tendance-container">
       <div className="movie-card">
@@ -40,11 +40,7 @@ export const TendanceCard = ({ title, tendance }) => {
           </svg>
         </div>
 
-        <div
-          ref={scrollerRef}
-          className="movie-element"
-          // style={{ display: 'flex', width: `${200 * movies.data.results.length}px` }}
-        >
+        <div ref={scrollerRef} className="movie-element">
           {tendance.data.results.length > 0 &&
             tendance.data.results.map((movie, key) => (
               <div className="movie-img" key={key}>

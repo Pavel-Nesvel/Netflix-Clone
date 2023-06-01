@@ -3,7 +3,6 @@ import YouTube from "react-youtube";
 import { getMovieId, getMovieVideo } from "../API/SearchMovie";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-
 import "../styles/homeMovie.css";
 import { NavLink } from "react-router-dom";
 
@@ -13,7 +12,6 @@ export const HomeMovie = ({ selectedMovieId, traillerPlay }) => {
   const [showVideo, setShowVideo] = useState(false);
   const [genres, setGenres] = useState([]);
   const playId = activePlay?.data.videos?.results[0];
-  console.log("acti", activeVideo);
   const dateFormter = (date) => {
     let newDate = new Date(date).toLocaleDateString("fr-FR", {
       day: "numeric",
@@ -73,9 +71,6 @@ export const HomeMovie = ({ selectedMovieId, traillerPlay }) => {
             ? activeVideo?.data.release_date
             : dateFormter(activeVideo?.data.videos?.results[0]?.published_at)}
         </h2>
-        {/* <h3>
-          {activeVideo?.data.vote_average}/<span>⭐</span>
-        </h3> */}
 
         <h3>
           <CircularProgressbar
