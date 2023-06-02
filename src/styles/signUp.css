@@ -14,7 +14,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  height: 260px;
+  height: 230px;
+}
+.form-container.singUp-height {
+  height: 295px;
 }
 form {
   display: grid;
@@ -47,7 +50,7 @@ form input[type="submit"] {
 }
 .signUp-count a {
   color: white;
-  font-size: 0.70rem;
+  font-size: 0.7rem;
 }
 
 .form-container h1 {
@@ -57,13 +60,12 @@ form input[type="submit"] {
     "Lucida Sans", Arial, sans-serif;
   padding: 10px 0;
 }
-.logout{
+.logout {
   width: 20px;
   height: 40px;
   position: absolute;
   align-items: center;
   top: 50%;
   margin-left: 3px;
-  transform: translate(-50%,-50%);
-  
+  transform: translate(-50%, -50%);
 }
