@@ -38,14 +38,13 @@
 }
 .movie-genres {
   display: inline-flex;
-  margin: 5px 0;
+
   font-size: 1.1rem;
   font-family: inherit;
 }
 .movie-genres ul {
   margin: 0 5px;
   list-style: none;
-  background: rgba(255, 255, 255, 0.08);
   padding: 0 5px;
   border-radius: 5px;
 }
@@ -65,6 +64,7 @@
 }
 .movie-content .production-companies {
   font-size: 1.1rem;
+  margin-bottom: -80px;
 }
 .movie-content .production-companies:hover {
   color: rgb(241, 241, 241, 0.6);
@@ -168,6 +168,15 @@ button.play-button:hover {
 }
 @media screen and (max-width: 948px) {
   .synopsis p {
-    width: 700px;
+    word-wrap: break-word;
+    width: 350px;
+    font-size: 7px;
+  }
+  .home-movies .movie-content {
+    padding-top: 15%;
+  }
+  .home-movies {
+    height: 60vh;
+    width: inherit;
   }
 }

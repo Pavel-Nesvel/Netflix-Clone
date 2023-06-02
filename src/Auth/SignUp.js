@@ -27,18 +27,19 @@ export const SignUp = () => {
     e.preventDefault();
     if (password !== passwordConfirm) {
       return alert("les deux mot de passe ne correspondent pas !");
-    }if(password.length<6){
-      setError(true)
+    }
+    if (password.length < 6) {
+      setError(true);
     }
     try {
       setLoading(true);
       await register(email, password);
       navigate("/");
     } catch (e) {
-      console.log("error",e)
+      console.log("error", e);
     }
     setLoading(false);
-    setError(false)
+    setError(false);
   };
   useEffect(() => {
     if (currentUser) {
@@ -48,7 +49,7 @@ export const SignUp = () => {
 
   return (
     <div className="signUp-container">
-      <div className="form-container">
+      <div className="form-container singUp-height ">
         <h1>S'inscrire</h1>
         <form onSubmit={handleSubmit}>
           <input
@@ -69,7 +70,8 @@ export const SignUp = () => {
             onChange={handlePassword}
             placeholder="votre mot de passe"
           />
-          {error && alert("votre mot de passe doit contenir au moins 6 caractères")}
+          {error &&
+            alert("votre mot de passe doit contenir au moins 6 caractères")}
           <input
             type="passWord"
             name="passWordConfirm"
@@ -79,10 +81,7 @@ export const SignUp = () => {
             onChange={handlePasswordConfirm}
             placeholder="confirmez votre mot de passe"
           />
-          <input
-            type="submit"
-            value="inscrption"
-          />
+          <input type="submit" value="inscrption" />
         </form>
         <div className="signUp-count">
           <h2>Vous etes déjà inscrit ?</h2>

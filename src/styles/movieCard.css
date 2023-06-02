@@ -3,7 +3,7 @@
   line-height: 1.4;
   color: #e5e5e5;
   font-weight: 500;
- font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .movie-element {
   margin: 5px 0;
@@ -99,6 +99,24 @@
   opacity: 1;
   transition: 0.3s ease-in-out;
 }
-.tendances-container{
+.tendances-container {
   margin-top: 50px;
+}
+@media screen and (max-width: 948px) {
+  .movie-card {
+    max-width: 9480px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .movie-img img {
+    height: 100%;
+    width: 150px;
+  }
+  .chevron-left,
+.chevron-right{
+  width: 20px;
+  height: 20px;
+}
 }
