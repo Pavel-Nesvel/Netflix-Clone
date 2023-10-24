@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export const Scroller = () => {
+export const UseScroller = () => {
   const scrollerRef = useRef(null);
 
   const handlePrev = () => {

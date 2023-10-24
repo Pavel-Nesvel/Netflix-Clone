@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Scroller } from "../Functions/Scroller";
+import { UseScroller } from "../Functions/Scroller";
 export const MovieCard = ({
   movies,
   title,
   setSelectedMovieId,
   setTraillerPlay,
 }) => {
-  const { scrollerRef, handlePrev, handleNext } = Scroller();
+  const { scrollerRef, handlePrev, handleNext } = UseScroller();
   const [movieIds, setMovieIds] = useState([]);
   const addToLocalStorage = (filmId) => {
     let AddStorage = window.localStorage.movies

@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import "../styles/movieCard.css";
-import { Scroller } from "../Functions/Scroller";
+import { UseScroller } from "../Functions/Scroller";
 export const TendanceCard = ({ title, tendance }) => {
-  const { scrollerRef, handlePrev, handleNext } = Scroller();
+  const { scrollerRef, handlePrev, handleNext } = UseScroller();
   return (
     <div className="tendance-container">
       <div className="movie-card">
