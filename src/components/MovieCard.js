@@ -20,7 +20,7 @@ export const MovieCard = ({
   };
   //Triez les films par date de sortie en utilisant la méthode sort()
   const sortedMovies = movies.data.results.sort((a, b) => {
-    return new Date(b.release_date) - new Date(a.release_date);
+    return new Date(b.release_date) - new Date(a.release_date); 
   });
 
   useEffect(() => {
